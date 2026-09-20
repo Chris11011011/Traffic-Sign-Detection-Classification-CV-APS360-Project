@@ -59,7 +59,7 @@ We wanted to build an end-to-end prototype that could:
 
 We focused on a **two-stage architecture** so detection and fine-grained classification could be improved and debugged independently.
 
-[![Problem and Motivation](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g376078997cc_14_25)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g376078997cc_14_25#slide=id.g376078997cc_14_25)
+[![Problem and Motivation](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g376078997cc_14_25)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g376078997cc_14_25#slide=id.g376078997cc_14_25)
 
 The motivation slide above captures the problem we started from: autonomous-driving systems need to recognize signs that are not always clean, front-facing, or easy to read.
 
@@ -67,7 +67,7 @@ The motivation slide above captures the problem we started from: autonomous-driv
 
 ## High-Level System Architecture
 
-[![Dual Stage Deep Learning Pipeline](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g37829a4c4d7_0_17)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_17#slide=id.g37829a4c4d7_0_17)
+[![Dual Stage Deep Learning Pipeline](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_17)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_17#slide=id.g37829a4c4d7_0_17)
 
 We separated the problem into two parts:
 
@@ -105,7 +105,7 @@ For Stage 2, we built a new dataset from the original MTSD images. We:
 
 Because of the size and processing time, we processed roughly **26,000 original images** for Stage 2, producing **more than 130,000 individual sign crops**.
 
-[![Mapillary Traffic Sign Dataset overview](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g3783cb18c31_1_33)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_33#slide=id.g3783cb18c31_1_33)
+[![Mapillary Traffic Sign Dataset overview](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3783cb18c31_1_33)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_33#slide=id.g3783cb18c31_1_33)
 
 ---
 
@@ -125,7 +125,7 @@ Resizing created another problem. We originally tried preserving aspect ratio wi
 
 Processing the full Stage 1 set took roughly **14 hours**, and we had to deal with multiple runtime interruptions while developing and validating the preprocessing pipeline.
 
-[![MTSD Data Cleaning and Processing](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g3783cb18c31_1_736)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_736#slide=id.g3783cb18c31_1_736)
+[![MTSD Data Cleaning and Processing](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3783cb18c31_1_736)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_736#slide=id.g3783cb18c31_1_736)
 
 The presentation slide above shows how the preprocessing workflow evolved from the raw MTSD scenes into the two datasets used by our detector and classifier.
 
@@ -179,7 +179,7 @@ That decision shifted us from a traditional-CV + deep-learning hybrid into a ful
 
 For Stage 1, we used the medium YOLOv11 model as our detector.
 
-[![Stage One Transfer Learning with YOLOv11m](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g37829a4c4d7_0_64)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_64#slide=id.g37829a4c4d7_0_64)
+[![Stage One Transfer Learning with YOLOv11m](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_64)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_64#slide=id.g37829a4c4d7_0_64)
 
 The model receives a **1024 x 1024** road-scene image and predicts bounding boxes around likely traffic signs. We then use the best-performing validation weights for inference.
 
@@ -187,13 +187,13 @@ The detector works best when signs are reasonably large, clearly visible, and no
 
 ### Detection under high sign density
 
-[![Detecting with High Sign Density](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g37829a4c4d7_0_87)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_87#slide=id.g37829a4c4d7_0_87)
+[![Detecting with High Sign Density](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_87)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_87#slide=id.g37829a4c4d7_0_87)
 
 This was one of the most useful qualitative checks for us. The detector could identify many signs in a dense scene, but it could still miss visually obvious signs or assign low confidence to them.
 
 ### Stage 1 quantitative results
 
-[![Stage One Quantitative Results](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g37829a4c4d7_0_81)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_81#slide=id.g37829a4c4d7_0_81)
+[![Stage One Quantitative Results](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_81)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_81#slide=id.g37829a4c4d7_0_81)
 
 The final report records approximate detector metrics of:
 
@@ -237,13 +237,13 @@ After feature extraction, we use:
 
 ### Baseline vs. custom architecture
 
-[![Baseline and Custom CNN Architecture Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g3752275856a_0_0)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3752275856a_0_0#slide=id.g3752275856a_0_0)
+[![Baseline and Custom CNN Architecture Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3752275856a_0_0)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3752275856a_0_0#slide=id.g3752275856a_0_0)
 
 Before committing to the deeper CNN, we built a shallow two-convolution-layer baseline inspired by earlier APS360 lab work. We used it as a sanity check for the Stage 2 pipeline before investing more time in the larger model.
 
 ### Stage 2 performance
 
-[![Stage 2 Performance Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g374a6058ba8_4_10)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g374a6058ba8_4_10#slide=id.g374a6058ba8_4_10)
+[![Stage 2 Performance Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g374a6058ba8_4_10)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g374a6058ba8_4_10#slide=id.g374a6058ba8_4_10)
 
 We trained the model using cross-entropy loss and the Adam optimizer. Our final presentation reports:
 
@@ -288,7 +288,7 @@ The integrated pipeline reached roughly **72% end-to-end accuracy** on the held-
 
 The classifier was generally stronger than the complete pipeline. Most end-to-end failures came from **missed detections**, not from incorrectly classifying signs that YOLO had already found.
 
-[![Final Demonstration](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g3747035d717_0_9)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_9#slide=id.g3747035d717_0_9)
+[![Final Demonstration](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3747035d717_0_9)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_9#slide=id.g3747035d717_0_9)
 
 The demonstration slide shows the final system running on real street scenes, with separate confidence values for detection and classification.
 
@@ -353,7 +353,7 @@ Our shallow CNN gave us a reference point and helped validate the Stage 2 datase
 
 Performance on clean held-out samples does not automatically translate to night scenes, small signs, occlusion, motion blur, or unusual viewpoints. Our separate 23-image test set exposed failure modes that were less visible in the standard dataset splits.
 
-[![Key Takeaways](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?pageid=g3747035d717_0_43)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_43#slide=id.g3747035d717_0_43)
+[![Key Takeaways](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3747035d717_0_43)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_43#slide=id.g3747035d717_0_43)
 
 ---
 
