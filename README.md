@@ -26,6 +26,8 @@ University of Toronto - **APS360: Applied Fundamentals of Deep Learning**
 
 **Final report:** [APS360_Final_Report_Group_58.pdf](docs/APS360_Final_Report_Group_58.pdf)
 
+> The full-slide visuals throughout this README are rendered directly from our final public Google Slides deck. This keeps the walkthrough visually consistent with the presentation and avoids stale or partial screenshots.
+
 ---
 
 ## Repository Structure
@@ -33,11 +35,10 @@ University of Toronto - **APS360: Applied Fundamentals of Deep Learning**
 This public repository is intended as a **project walkthrough** rather than a source-code release.
 
 - `README.md` - full project overview, process, architecture, results, and lessons learned.
-- `assets/two-stage-pipeline.png` - original high-level detection/classification system diagram.
+- `assets/two-stage-pipeline.png` - standalone high-level detection/classification system diagram.
 - `assets/classification-development-flow.png` - earlier Stage 2 development and testing workflow.
 - `docs/APS360_Final_Report_Group_58.pdf` - final written project report.
-
-The walkthrough below also uses full-slide captures from our final presentation so the visuals stay connected to the explanation rather than being separated into a gallery.
+- Final-presentation visuals below - rendered directly from the source Google Slides deck so the README stays aligned with the latest presentation.
 
 > **Academic Integrity & Licensing**  
 > To comply with academic integrity and plagiarism policies at the University of Toronto, the source code for this course project will **not** be published in this repository.
@@ -58,15 +59,15 @@ We wanted to build an end-to-end prototype that could:
 
 We focused on a **two-stage architecture** so detection and fine-grained classification could be improved and debugged independently.
 
+[![Problem and Motivation](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g376078997cc_14_25)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g376078997cc_14_25#slide=id.g376078997cc_14_25)
+
+The motivation slide above captures the problem we started from: autonomous-driving systems need to recognize signs that are not always clean, front-facing, or easy to read.
+
 ---
 
 ## High-Level System Architecture
 
-<p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=15rp3DbLR6mZewdP5jTY7xdm8V4Fdq2SF" alt="Two-stage traffic sign detection and classification pipeline" width="850">
-</p>
-
-The diagram above is a white-backed export of our system diagram so it remains readable in both GitHub light and dark mode.
+[![Dual Stage Deep Learning Pipeline](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_17)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_17#slide=id.g37829a4c4d7_0_17)
 
 We separated the problem into two parts:
 
@@ -104,9 +105,7 @@ For Stage 2, we built a new dataset from the original MTSD images. We:
 
 Because of the size and processing time, we processed roughly **26,000 original images** for Stage 2, producing **more than 130,000 individual sign crops**.
 
-| Dataset overview | Data cleaning & preprocessing |
-| --- | --- |
-| [<img src="https://drive.google.com/uc?export=view&id=1HxJ1ZxRhwbyQzOWyQrE7EBE2BUddl273" alt="MTSD dataset overview slide" width="100%">](https://drive.google.com/file/d/1HxJ1ZxRhwbyQzOWyQrE7EBE2BUddl273/view) | [<img src="https://drive.google.com/uc?export=view&id=1t-4ST5HGnteXaxZoLBG744ksKOmdryc_" alt="MTSD data cleaning and preprocessing slide" width="100%">](https://drive.google.com/file/d/1t-4ST5HGnteXaxZoLBG744ksKOmdryc_/view) |
+[![Mapillary Traffic Sign Dataset overview](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3783cb18c31_1_33)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_33#slide=id.g3783cb18c31_1_33)
 
 ---
 
@@ -126,11 +125,17 @@ Resizing created another problem. We originally tried preserving aspect ratio wi
 
 Processing the full Stage 1 set took roughly **14 hours**, and we had to deal with multiple runtime interruptions while developing and validating the preprocessing pipeline.
 
+[![MTSD Data Cleaning and Processing](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3783cb18c31_1_736)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3783cb18c31_1_736#slide=id.g3783cb18c31_1_736)
+
+The presentation slide above shows how the preprocessing workflow evolved from the raw MTSD scenes into the two datasets used by our detector and classifier.
+
+### Earlier Stage 2 workflow sketch
+
 <p align="center">
   <img src="assets/classification-development-flow.png" alt="Stage 2 classification development workflow" width="900">
 </p>
 
-This earlier workflow sketch captures the path we followed as the classification side developed: data cleaning, preprocessing, model training, hyperparameter tuning, integration, and testing on real uploaded images.
+This earlier working sketch captures the path we followed as the classification side developed: data cleaning, preprocessing, model training, hyperparameter tuning, integration, and testing on real uploaded images.
 
 ---
 
@@ -174,15 +179,21 @@ That decision shifted us from a traditional-CV + deep-learning hybrid into a ful
 
 For Stage 1, we used the medium YOLOv11 model as our detector.
 
+[![Stage One Transfer Learning with YOLOv11m](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_64)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_64#slide=id.g37829a4c4d7_0_64)
+
 The model receives a **1024 x 1024** road-scene image and predicts bounding boxes around likely traffic signs. We then use the best-performing validation weights for inference.
 
-The detector works best when signs are:
+The detector works best when signs are reasonably large, clearly visible, and not heavily occluded. Its main weakness is **recall**: small, distant, partially blocked, or low-quality signs are more likely to be missed entirely.
 
-- reasonably large,
-- clearly visible,
-- and not heavily occluded.
+### Detection under high sign density
 
-Its main weakness is **recall**. Small, distant, partially blocked, or low-quality signs are more likely to be missed entirely.
+[![Detecting with High Sign Density](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_87)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_87#slide=id.g37829a4c4d7_0_87)
+
+This was one of the most useful qualitative checks for us. The detector could identify many signs in a dense scene, but it could still miss visually obvious signs or assign low confidence to them.
+
+### Stage 1 quantitative results
+
+[![Stage One Quantitative Results](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g37829a4c4d7_0_81)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g37829a4c4d7_0_81#slide=id.g37829a4c4d7_0_81)
 
 The final report records approximate detector metrics of:
 
@@ -193,13 +204,7 @@ The final report records approximate detector metrics of:
 | mAP@50 | ~0.71 |
 | mAP@50-95 | ~0.53 |
 
-Our final presentation also summarizes Stage 1 at approximately **83% test accuracy**.
-
-| Detection under high sign density | Stage 1 quantitative results |
-| --- | --- |
-| [<img src="https://drive.google.com/uc?export=view&id=1VcBg4Z_Jm-CDZYFZcY36jw5D0oGSck51" alt="Detection with high sign density" width="100%">](https://drive.google.com/file/d/1VcBg4Z_Jm-CDZYFZcY36jw5D0oGSck51/view) | [<img src="https://drive.google.com/uc?export=view&id=1lI7qY8l-dQsBOWaZcm0LFs6OpySCQKTW" alt="Stage one quantitative results" width="100%">](https://drive.google.com/file/d/1lI7qY8l-dQsBOWaZcm0LFs6OpySCQKTW/view) |
-
-These slides show the tradeoff we observed in practice: the detector can handle scenes with many signs, but missed detections and lower-confidence boxes still become the dominant failure mode.
+Our final presentation summarizes Stage 1 at approximately **83% test accuracy**.
 
 ---
 
@@ -230,9 +235,17 @@ After feature extraction, we use:
 - a fully connected layer with **256 hidden units**,
 - and a final classification layer for the evaluated sign classes.
 
-We trained the model using cross-entropy loss and the Adam optimizer.
+### Baseline vs. custom architecture
 
-Our final presentation reports:
+[![Baseline and Custom CNN Architecture Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3752275856a_0_0)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3752275856a_0_0#slide=id.g3752275856a_0_0)
+
+Before committing to the deeper CNN, we built a shallow two-convolution-layer baseline inspired by earlier APS360 lab work. We used it as a sanity check for the Stage 2 pipeline before investing more time in the larger model.
+
+### Stage 2 performance
+
+[![Stage 2 Performance Comparison](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g374a6058ba8_4_10)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g374a6058ba8_4_10#slide=id.g374a6058ba8_4_10)
+
+We trained the model using cross-entropy loss and the Adam optimizer. Our final presentation reports:
 
 - **Learning rate:** 0.001
 - **Epochs:** 100
@@ -240,19 +253,15 @@ Our final presentation reports:
 - **Baseline CNN test accuracy:** 79%
 - **Custom CNN test accuracy:** 87%
 
-| Baseline vs. custom CNN architecture | Stage 2 performance |
-| --- | --- |
-| [<img src="https://drive.google.com/uc?export=view&id=1_Vh9sm8Rm5wCXvBPiS2LvqjIRLKZKGCa" alt="Baseline and custom CNN comparison" width="100%">](https://drive.google.com/file/d/1_Vh9sm8Rm5wCXvBPiS2LvqjIRLKZKGCa/view) | [<img src="https://drive.google.com/uc?export=view&id=1R66lzCdV0T6A02xtW6CPxR5wziOoN6I6" alt="Stage two performance comparison" width="100%">](https://drive.google.com/file/d/1R66lzCdV0T6A02xtW6CPxR5wziOoN6I6/view) |
-
 Our custom model improved over the shallow baseline while remaining small enough to train and iterate on within the constraints of the project.
 
 ---
 
 ## 7. Why the Baseline Model Mattered
 
-Before committing to the deeper CNN, we built a shallow two-convolution-layer baseline inspired by earlier APS360 lab work.
+The baseline served as more than a lower accuracy number. It helped us validate the entire Stage 2 workflow.
 
-We used it as a sanity check for the entire Stage 2 pipeline. If the simple model could learn meaningful structure from the cropped data, it gave us evidence that:
+If the simple model could learn meaningful structure from the cropped data, it gave us evidence that:
 
 - our new dataset had been built correctly,
 - labels were being read correctly,
@@ -279,13 +288,9 @@ The integrated pipeline reached roughly **72% end-to-end accuracy** on the held-
 
 The classifier was generally stronger than the complete pipeline. Most end-to-end failures came from **missed detections**, not from incorrectly classifying signs that YOLO had already found.
 
-<p align="center">
-  <a href="https://drive.google.com/file/d/11MdKttqoMYkjK7diLLCJ9kwK_Q82TxXu/view">
-    <img src="https://drive.google.com/uc?export=view&id=11MdKttqoMYkjK7diLLCJ9kwK_Q82TxXu" alt="Final traffic sign detection and classification demonstration" width="850">
-  </a>
-</p>
+[![Final Demonstration](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3747035d717_0_9)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_9#slide=id.g3747035d717_0_9)
 
-The demonstration slide above shows examples of the final system running on real street scenes, with separate confidence values for detection and classification.
+The demonstration slide shows the final system running on real street scenes, with separate confidence values for detection and classification.
 
 ---
 
@@ -305,15 +310,7 @@ We intentionally varied:
 
 On large and clearly visible signs, detection confidence was often around **0.8-0.92**, while classification confidence for a successfully detected sign was often above **0.95**.
 
-Performance dropped when signs were:
-
-- small,
-- blurry,
-- partially blocked,
-- viewed at extreme angles,
-- or captured in poor lighting.
-
-We also saw false positives on bright or sign-like objects.
+Performance dropped when signs were small, blurry, partially blocked, viewed at extreme angles, or captured in poor lighting. We also saw false positives on bright or sign-like objects.
 
 This real-world test set reinforced our main conclusion: **detection sensitivity was the largest bottleneck in the combined system**.
 
@@ -356,11 +353,7 @@ Our shallow CNN gave us a reference point and helped validate the Stage 2 datase
 
 Performance on clean held-out samples does not automatically translate to night scenes, small signs, occlusion, motion blur, or unusual viewpoints. Our separate 23-image test set exposed failure modes that were less visible in the standard dataset splits.
 
-<p align="center">
-  <a href="https://drive.google.com/file/d/1LyyU4rYMVRyZPeTUvCWHAJafBn-NVGtQ/view">
-    <img src="https://drive.google.com/uc?export=view&id=1LyyU4rYMVRyZPeTUvCWHAJafBn-NVGtQ" alt="Project key takeaways slide" width="850">
-  </a>
-</p>
+[![Key Takeaways](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/export/png?id=15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8&pageid=g3747035d717_0_43)](https://docs.google.com/presentation/d/15KnEz0Tg5qyaUHe-0FW0IOmqzT2QzNfEITnDmjHWMv8/edit?slide=id.g3747035d717_0_43#slide=id.g3747035d717_0_43)
 
 ---
 
