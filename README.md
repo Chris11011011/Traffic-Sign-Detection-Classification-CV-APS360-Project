@@ -32,10 +32,10 @@ University of Toronto - **APS360: Applied Fundamentals of Deep Learning**
 
 This public repository is intended as a **project walkthrough** rather than a source-code release.
 
-- \`README.md\` - full project overview, process, architecture, results, and lessons learned.
-- \`assets/two-stage-pipeline.png\` - original high-level detection/classification system diagram.
-- \`assets/classification-development-flow.png\` - earlier Stage 2 development and testing workflow.
-- \`docs/APS360_Final_Report_Group_58.pdf\` - final written project report.
+- `README.md` - full project overview, process, architecture, results, and lessons learned.
+- `assets/two-stage-pipeline.png` - original high-level detection/classification system diagram.
+- `assets/classification-development-flow.png` - earlier Stage 2 development and testing workflow.
+- `docs/APS360_Final_Report_Group_58.pdf` - final written project report.
 
 The walkthrough below also uses full-slide captures from our final presentation so the visuals stay connected to the explanation rather than being separated into a gallery.
 
@@ -140,7 +140,7 @@ We did not rely entirely on Google Colab's hosted GPU availability.
 
 During development, we configured **Google Colab to connect to a local Jupyter runtime** on a Windows workstation equipped with an **NVIDIA GeForce RTX 4070 Ti**. That allowed us to run PyTorch workloads locally with **CUDA acceleration** while still using the Colab notebook interface and the rest of our existing workflow.
 
-We verified the local GPU environment with \`nvidia-smi\`, installed the required Python/PyTorch dependencies on the host machine, and used the local runtime for GPU-heavy training and experimentation.
+We verified the local GPU environment with `nvidia-smi`, installed the required Python/PyTorch dependencies on the host machine, and used the local runtime for GPU-heavy training and experimentation.
 
 This was especially useful for longer model iterations because it gave us:
 
